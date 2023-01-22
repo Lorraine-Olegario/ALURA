@@ -9,6 +9,7 @@ class Buscador
 {
     private $httpClient;
     private $crawler;
+    private $selectorHtml;
 
     public function __construct(Client $httpClient, Crawler $crawler)
     {
@@ -16,23 +17,28 @@ class Buscador
         $this->crawler = $crawler;
     }
 
+    public function seletoresHtml(string $e)
+    {
+        $this->selectorHtml = $e;
+    }
+
     public function buscar(string $url): array
     {
         try {
             $response = $this->httpClient->request('GET', $url);
             $html = $response->getBody();
-            $cursos = $this->crawler->addHtmlContent($html);
+            $listElementos = $this->crawler->addHtmlContent($html);
 
-            $elementosCursos = $this->crawler->filter('h2.ticker-name');
-            $cursos = [];
+            $elementos = $this->crawler->filter($this->selectorHtml);
+            $listElementos = [];
 
-            foreach ($elementosCursos as $curso) {
-                $cursos [] = $curso->textContent;
+            foreach ($elementos as $elemento) {
+                $listElementos [] = $elemento->textContent;
             }
         } catch (\Exception $e) {
             echo $e->getMessage();
         }
 
-        return $cursos;
+        return $listElementos;
     }
 }

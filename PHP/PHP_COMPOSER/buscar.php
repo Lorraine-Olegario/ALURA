@@ -1,20 +1,21 @@
 <?php
 
-    use Alura\CursoComposer\Buscador;
-    use GuzzleHttp\Client;
-    use Symfony\Component\DomCrawler\Crawler;
+use Alura\CursoComposer\Buscador;
+use GuzzleHttp\Client;
+use Symfony\Component\DomCrawler\Crawler;
 
-    require './vendor/autoload.php';
+require './vendor/autoload.php';
 
-    $client = new Client([
-        'base_uri' => 'https://investidor10.com.br/',
-        'verify' => false //Isso evita a verificação do certificado SSL da Alura.
-    ]);
-    $crawler = new Crawler();
+$client = new Client([
+    'base_uri' => 'https://investidor10.com.br/',
+    'verify' => false //Isso evita a verificação do certificado SSL.
+]);
+$crawler = new Crawler();
 
-    $buscador = new Buscador($client,$crawler);
-    $cursos = $buscador->buscar('fiis/');
+$buscador = new Buscador($client,$crawler);
+$buscador->seletoresHtml('h2.ticker-name');
+$elementos = $buscador->buscar('fiis/');
 
-    foreach ($cursos as $curso) {
-        echo $curso. PHP_EOL;
-    }
+foreach ($elementos as $elemento) {
+    echo $elemento. PHP_EOL;
+}
