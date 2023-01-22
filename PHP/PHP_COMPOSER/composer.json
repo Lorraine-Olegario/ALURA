@@ -9,6 +9,9 @@
     },
     "license": "MIT",
     "autoload": {
+        "files": [
+            "functions.php"
+        ],
         "classmap": [
             "./Teste.php"
         ],
