@@ -1,0 +1,27 @@
+* {
+    margin: auto;
+    padding: auto;
+}
+
+body {
+    background: #e8f9ff;
+}
+
+.frase {
+    font-size: 20px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    text-align: justify;
+}
+
+textarea#typingFiel {
+    height: 150px;
+    resize: none;
+    margin-top: 20px;
+    margin-bottom: 5px;
+    border: 2px solid black;
+}
+
+textarea.disableFiel {
+    background: #fffbe5;
+}
