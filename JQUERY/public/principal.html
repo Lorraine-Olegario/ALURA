@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <title>Alura Typer</title>
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="./css/libs/materialize.min.css">
+        <link rel="stylesheet" href="./css/libs/google-fonts.css">
+        <link rel="stylesheet" href="./css/estilos.css">
+    </head>
+    <body>       
+        <div class="container">
+            <h1 class="center">Alura Typer</h1>
+            <p class="center frase">O que temos que ter sempre em mente é que o fenômeno da Internet afeta positivamente a correta previsão do levantamento das variáveis envolvidas.</p>
+
+            <ul class="center informacoes">
+                <li><span id="numberTotalWords">0</span> palavras</li>
+                <li><span id="timeTyped">15</span> segundos</li>
+            </ul>
+
+            <textarea id="typingFiel" cols="50" rows="10"></textarea>
+            <div class="botoes">
+                <a id="resetGame" class="btn-floating btn-large waves-effect waves-light red">
+                    <i class="material-icons">restore</i>
+                </a>
+            </div>
+
+            <ul class="center informacoes">
+                <li><span id="numberTotalCharactersTyped">0</span> caracteres</li>
+                <li><span id="numberTotalWordsTyped">0</span> palavras</li>
+            </ul>
+
+            <h1 class="center">Placar</h1>
+            <table id="tablePlacar">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>N° Palavras</th>
+                        <th>Remover</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+
+        <script src="./js/jquery.js"></script>
+        <script src="./js/main.js"></script>
+        <script src="./js/scoreboard.js"></script>
+    </body>
+</html>
